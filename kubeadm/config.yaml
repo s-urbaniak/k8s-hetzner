@@ -1,0 +1,23 @@
+apiVersion: kubeadm.k8s.io/v1alpha2
+kind: MasterConfiguration
+kubernetesVersion: ${kubernetes_version}
+api:
+  controlPlaneEndpoint: ${api_controlplane_endpoint}
+apiServerExtraArgs:
+  oidc-client-id: ${oidc_client_id}
+  oidc-issuer-url: ${oidc_issuer_url}
+  oidc-username-claim: ${oidc_username_claim}
+featureGates:
+  CoreDNS: ${coredns_enabled}
+  DynamicKubeletConfig: true
+networking:
+  podSubnet: "192.168.0.0/16"
+componentConfigs:
+  kubelet:
+    rotateCertificates: true
+    clusterDNS: 10.96.0.10
+    staticPodPath: /etc/kubernetes/manifests
+    cgroupdDriver: cgroupfs
+    authentication:
+      webhook:
+        enabled: true

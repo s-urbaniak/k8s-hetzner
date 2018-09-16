@@ -1,0 +1,24 @@
+{
+  "dependencies": [
+    {
+      "name": "ksonnet",
+      "source": {
+        "git": {
+          "remote": "https://github.com/ksonnet/ksonnet-lib",
+          "subdir": ""
+        }
+      },
+      "version": "master"
+    },
+    {
+      "name": "kube-prometheus",
+      "source": {
+        "git": {
+          "remote": "https://github.com/coreos/prometheus-operator",
+          "subdir": "contrib/kube-prometheus/jsonnet/kube-prometheus"
+        }
+      },
+      "version": "master"
+    }
+  ]
+}
